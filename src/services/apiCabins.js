@@ -5,7 +5,21 @@ export async function getCabins() {
 
   if (error) {
     console.error(error);
-    throw new Error("Cabins could not be loaded");
+    throw new Error("Ошибка при загрузке домиков");
+  }
+
+  return data;
+}
+
+export async function createCabin(newCabin) {
+  const { data, error } = await supabase
+    .from("cabins")
+    .insert([newCabin])
+    .select();
+
+  if (error) {
+    console.error(error);
+    throw new Error("Ошибка при создании домика");
   }
 
   return data;
@@ -16,7 +30,7 @@ export async function deleteCabin(id) {
 
   if (error) {
     console.error(error);
-    throw new Error("Cabins could not be deleted");
+    throw new Error("Домик не может быть удален");
   }
 
   return data;
