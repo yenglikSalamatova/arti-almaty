@@ -1,4 +1,5 @@
 import { differenceInDays, formatDistance, parseISO } from "date-fns";
+import { ru } from "date-fns/locale";
 
 // We want to make this function work for both Date objects and strings (which come from Supabase)
 export const subtractDates = (dateStr1, dateStr2) =>
@@ -7,6 +8,7 @@ export const subtractDates = (dateStr1, dateStr2) =>
 export const formatDistanceFromNow = (dateStr) =>
   formatDistance(parseISO(dateStr), new Date(), {
     addSuffix: true,
+    locale: ru,
   })
     .replace("about ", "")
     .replace("in", "In");
@@ -27,3 +29,15 @@ export const formatCurrency = (value) =>
   new Intl.NumberFormat("ru-RU", { style: "currency", currency: "KZT" }).format(
     value
   );
+
+export const translateStatus = (status) => {
+  console.log(status);
+  switch (status) {
+    case "unconfirmed":
+      return "не подтвержден";
+    case "checked-in":
+      return "зарегистрирован";
+    case "checked-out":
+      return "покинул";
+  }
+};

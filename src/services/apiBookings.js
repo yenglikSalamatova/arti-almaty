@@ -1,6 +1,17 @@
 import { getToday } from "../utils/helpers";
 import supabase from "./supabase";
 
+export async function getBookings() {
+  const { data, error } = await supabase
+    .from("bookings")
+    .select("*, cabins(name), guest(fullName, email)");
+  if (error) {
+    console.error(error);
+    throw new Error("Заказы не могут быть загружены");
+  }
+  return data;
+}
+
 export async function getBooking(id) {
   const { data, error } = await supabase
     .from("bookings")
@@ -10,7 +21,7 @@ export async function getBooking(id) {
 
   if (error) {
     console.error(error);
-    throw new Error("Booking not found");
+    throw new Error("Заказ не может быть загружен");
   }
 
   return data;
@@ -26,7 +37,7 @@ export async function getBookingsAfterDate(date) {
 
   if (error) {
     console.error(error);
-    throw new Error("Bookings could not get loaded");
+    throw new Error("Заказы не могут быть загружены");
   }
 
   return data;
