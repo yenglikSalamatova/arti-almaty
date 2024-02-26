@@ -25,10 +25,7 @@ export const getToday = function (options = {}) {
   return today.toISOString();
 };
 
-export const formatCurrency = (value) =>
-  new Intl.NumberFormat("ru-RU", { style: "currency", currency: "KZT" }).format(
-    value
-  );
+export const formatCurrency = (value) => `${value.toLocaleString("ru")} тг.`;
 
 export const translateStatus = (status) => {
   console.log(status);

@@ -35,13 +35,14 @@ function CabinTable() {
 
   return (
     <Menus>
-      <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
+      <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 2fr 1fr">
         <Table.Header>
           <div></div>
           <div>Домик</div>
           <div>Вместимость</div>
           <div>Цена</div>
           <div>Скидка</div>
+          <div>Описание</div>
           <div></div>
         </Table.Header>
         <Table.Body
