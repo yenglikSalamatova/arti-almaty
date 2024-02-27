@@ -8,7 +8,13 @@ import Menus from "../../ui/Menus";
 import { formatCurrency, translateStatus } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
 import { ru } from "date-fns/locale";
-import { HiEye, HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
+import {
+  HiArrowDownOnSquare,
+  HiEye,
+  HiPencil,
+  HiSquare2Stack,
+  HiTrash,
+} from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 
 const Cabin = styled.div`
@@ -94,6 +100,14 @@ function BookingRow({
           >
             Посмотреть детали
           </Menus.Button>
+          {status === "unconfirmed" && (
+            <Menus.Button
+              icon={<HiArrowDownOnSquare />}
+              onClick={() => navigate(`/checkin/${bookingId}`)}
+            >
+              Зарегистрировать
+            </Menus.Button>
+          )}
           <Menus.Button icon={<HiPencil />}>Редактировать</Menus.Button>
           <Menus.Button icon={<HiTrash />}>Удалить</Menus.Button>
         </Menus.List>
