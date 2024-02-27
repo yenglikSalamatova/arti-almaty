@@ -6,7 +6,6 @@ import BookingTableOperations from "../features/bookings/BookingTableOperations"
 function Bookings() {
   return (
     <>
-      {" "}
       <Row type="horizontal">
         <Heading as="h1">Все заказы</Heading>
         <BookingTableOperations />
