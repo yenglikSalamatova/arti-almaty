@@ -19,7 +19,7 @@ const Image = styled.img`
 function Logo() {
   return (
     <StyledLogo>
-      <Image src="./logo.png" /> Arti Almaty.
+      <Image src="/logo.png" /> Arti Almaty.
     </StyledLogo>
   );
 }

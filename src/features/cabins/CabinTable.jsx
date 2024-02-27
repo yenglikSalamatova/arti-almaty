@@ -13,7 +13,6 @@ function CabinTable() {
 
   // Filter
   const filterValue = searchParams.get("discount") || "all";
-  console.log(filterValue);
 
   let filteredCabins;
 
@@ -26,12 +25,11 @@ function CabinTable() {
   // Sort
   const sortBy = searchParams.get("sortBy") || "name-asc";
   const [field, direction] = sortBy.split("-");
-  console.log(field, direction);
+
   const modifier = direction === "asc" ? 1 : -1;
   const sortedCabins = filteredCabins.sort(
     (a, b) => (a[field] - b[field]) * modifier
   );
-  console.log(modifier, sortedCabins);
 
   return (
     <Menus>
