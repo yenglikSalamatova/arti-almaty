@@ -10,12 +10,14 @@ import { formatDistanceFromNow } from "../../utils/helpers";
 import { ru } from "date-fns/locale";
 import {
   HiArrowDownOnSquare,
+  HiArrowUpOnSquare,
   HiEye,
   HiPencil,
   HiSquare2Stack,
   HiTrash,
 } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
+import { useCheckout } from "../check-in-out/useCheckout";
 
 const Cabin = styled.div`
   font-size: 1.6rem;
@@ -58,6 +60,7 @@ function BookingRow({
   },
 }) {
   const navigate = useNavigate();
+  const { checkout, isCheckingOut } = useCheckout();
 
   const statusToTagName = {
     unconfirmed: "blue",
@@ -104,12 +107,21 @@ function BookingRow({
             <Menus.Button
               icon={<HiArrowDownOnSquare />}
               onClick={() => navigate(`/checkin/${bookingId}`)}
+              disabled={isCheckingOut}
             >
               Зарегистрировать
             </Menus.Button>
           )}
-          <Menus.Button icon={<HiPencil />}>Редактировать</Menus.Button>
-          <Menus.Button icon={<HiTrash />}>Удалить</Menus.Button>
+          {status === "checked-in" && (
+            <Menus.Button
+              icon={<HiArrowUpOnSquare />}
+              onClick={() => {
+                checkout(bookingId);
+              }}
+            >
+              Отметить выезд
+            </Menus.Button>
+          )}
         </Menus.List>
       </Menus.Menu>
     </Table.Row>
