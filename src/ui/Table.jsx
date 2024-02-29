@@ -61,6 +61,7 @@ const Empty = styled.p`
 
 const TableContext = createContext();
 
+// columns is a string of size of each row like "0.6fr 2fr 2.4fr 1.4fr 1fr 3.2rem"
 function Table({ columns, children }) {
   return (
     <TableContext.Provider value={columns}>
