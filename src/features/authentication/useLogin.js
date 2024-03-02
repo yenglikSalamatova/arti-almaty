@@ -1,9 +1,10 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { login } from "../../services/apiAuth";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export function useLogin() {
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const {
@@ -12,8 +13,9 @@ export function useLogin() {
     error,
   } = useMutation({
     mutationFn: ({ email, password }) => login({ email, password }),
-    onSuccess: () => {
-      navigate("/dashboard");
+    onSuccess: (user) => {
+      queryClient.setQueryData(["user", user]);
+      navigate("/");
     },
     onError: () => toast.error("Неверная почта или пароль"),
   });

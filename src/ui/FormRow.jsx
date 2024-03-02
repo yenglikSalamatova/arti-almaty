@@ -27,7 +27,7 @@ const StyledFormRow = styled.div`
   }
 
   ${(props) =>
-    props.vertical &&
+    props.vertical === "true" &&
     css`
       grid-template-columns: 1fr;
       gap: 1rem;
@@ -43,7 +43,7 @@ const Error = styled.span`
   color: var(--color-red-700);
 `;
 
-function FormRow({ label, error, children, vertical = false }) {
+function FormRow({ label, error, children, vertical = "false" }) {
   return (
     <StyledFormRow vertical={vertical}>
       {label && <Label htmlFor={children.props.id}>{label}</Label>}

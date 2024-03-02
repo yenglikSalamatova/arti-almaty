@@ -22,7 +22,7 @@ function LoginForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormRow label="Почта" vertical={true}>
+      <FormRow label="Почта" vertical="true">
         <Input
           type="email"
           id="email"
@@ -32,7 +32,7 @@ function LoginForm() {
           disabled={isLoggingIn}
         />
       </FormRow>
-      <FormRow label="Пароль" vertical={true}>
+      <FormRow label="Пароль" vertical="true">
         <Input
           type="password"
           id="password"
