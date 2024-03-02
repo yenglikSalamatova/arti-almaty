@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledFormRow = styled.div`
   display: grid;
@@ -25,6 +25,13 @@ const StyledFormRow = styled.div`
     justify-content: flex-end;
     gap: 1.2rem;
   }
+
+  ${(props) =>
+    props.vertical &&
+    css`
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    `}
 `;
 
 const Label = styled.label`
@@ -36,9 +43,9 @@ const Error = styled.span`
   color: var(--color-red-700);
 `;
 
-function FormRow({ label, error, children }) {
+function FormRow({ label, error, children, vertical = false }) {
   return (
-    <StyledFormRow>
+    <StyledFormRow vertical={vertical}>
       {label && <Label htmlFor={children.props.id}>{label}</Label>}
       {children}
       {error && <Error>{error}</Error>}
