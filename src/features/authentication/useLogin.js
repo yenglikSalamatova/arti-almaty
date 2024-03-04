@@ -14,8 +14,9 @@ export function useLogin() {
   } = useMutation({
     mutationFn: ({ email, password }) => login({ email, password }),
     onSuccess: (user) => {
-      queryClient.setQueryData(["user", user]);
-      navigate("/");
+      console.log(user);
+      queryClient.setQueryData(["user"], { ...user.user });
+      navigate("/dashboard", { replace: true });
     },
     onError: () => toast.error("Неверная почта или пароль"),
   });
