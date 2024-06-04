@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import Alert from "../../ui/Alert";
 
 import { useUpdateUser } from "./useUpdateUser";
 
@@ -18,38 +19,39 @@ function UpdatePasswordForm() {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
+      <Alert>Изменение пароля отключено в демо версии</Alert>
       <FormRow
-        label="Password (min 8 characters)"
+        label="Пароль (мин 8 символов)"
         error={errors?.password?.message}
       >
         <Input
           type="password"
           id="password"
           autoComplete="current-password"
-          disabled={isUpdating}
+          disabled={true}
           {...register("password", {
-            required: "This field is required",
+            required: "Это поле обязательно",
             minLength: {
               value: 8,
-              message: "Password needs a minimum of 8 characters",
+              message: "Минимум 8 символов",
             },
           })}
         />
       </FormRow>
 
       <FormRow
-        label="Confirm password"
+        label="Повторите пароль"
         error={errors?.passwordConfirm?.message}
       >
         <Input
           type="password"
           autoComplete="new-password"
           id="passwordConfirm"
-          disabled={isUpdating}
+          disabled={true}
           {...register("passwordConfirm", {
-            required: "This field is required",
+            required: "Это поле обязательно",
             validate: (value) =>
-              getValues().password === value || "Passwords need to match",
+              getValues().password === value || "Пароли не совпадают",
           })}
         />
       </FormRow>
@@ -57,7 +59,7 @@ function UpdatePasswordForm() {
         <Button onClick={reset} type="reset" variation="secondary">
           Cancel
         </Button>
-        <Button disabled={isUpdating}>Update password</Button>
+        <Button disabled={isUpdating}>Обновить пароль</Button>
       </FormRow>
     </Form>
   );

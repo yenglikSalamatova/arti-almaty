@@ -17,7 +17,7 @@ function Login() {
   return (
     <LoginLayout>
       <Logo />
-      <Heading as="h2" style={{ textAlign: "center" }}>
+      <Heading as="h1" style={{ textAlign: "center" }}>
         Вход в аккаунт
       </Heading>
       <LoginForm />

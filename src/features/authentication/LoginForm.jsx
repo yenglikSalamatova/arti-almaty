@@ -7,8 +7,8 @@ import { useLogin } from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("micobob698@jzexport.com");
+  const [password, setPassword] = useState("12345678");
 
   const { loginUser, isLoggingIn } = useLogin();
 
@@ -22,6 +22,7 @@ function LoginForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <p>В демо-версии используются готовые данные</p>
       <FormRow label="Почта" vertical="true">
         <Input
           type="email"
@@ -29,7 +30,7 @@ function LoginForm() {
           autoComplete="username"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          disabled={isLoggingIn}
+          disabled={true}
         />
       </FormRow>
       <FormRow label="Пароль" vertical="true">
@@ -39,7 +40,7 @@ function LoginForm() {
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          disabled={isLoggingIn}
+          disabled={true}
         />
       </FormRow>
       <FormRow>
