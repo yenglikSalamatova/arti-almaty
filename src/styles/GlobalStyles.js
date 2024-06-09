@@ -55,8 +55,8 @@ const GlobalStyles = createGlobalStyle`
     --color-grey-800: #f3f4f6;
     --color-grey-900: #f9fafb;
 
-    --color-blue-100: #075985;
-    --color-blue-700: #e0f2fe;
+    --color-blue-100:#e0f2fe; 
+    --color-blue-700: #075985;
     --color-green-100: #166534;
     --color-green-700: #dcfce7;
     --color-yellow-100: #854d0e;
@@ -80,15 +80,15 @@ const GlobalStyles = createGlobalStyle`
     --image-opacity: 90%;
   }
 
-  /* Blue */
-  --color-brand-50: #b3c8e6;
-  --color-brand-100: #6691cd;
-  --color-brand-200: #1a59b3;
-  --color-brand-500: #0047ab;
-  --color-brand-600: #0047ab;
-  --color-brand-700: #003989;
-  --color-brand-800: #003278;
-  --color-brand-900: #002456;
+  
+  --color-brand-50: #f1bed4;
+  --color-brand-100: #df679b;
+  --color-brand-200: #d63c7e;
+  --color-brand-500: #d12670;
+  --color-brand-600: #bc2265;
+  --color-brand-700: #a71e5a;
+  --color-brand-800: #921b4e;
+  --color-brand-900: #7d1743;
 
   --border-radius-tiny: 3px;
   --border-radius-sm: 5px;

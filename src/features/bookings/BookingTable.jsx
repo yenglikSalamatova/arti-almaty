@@ -6,11 +6,11 @@ import Spinner from "../../ui/Spinner";
 import Pagination from "../../ui/Pagination";
 
 function BookingTable() {
-  const { isLoading, bookings, count } = useBookings();
-
-  console.log("bookings", bookings);
+  const { isLoading, count, bookings } = useBookings();
 
   if (isLoading) return <Spinner />;
+
+  if (!bookings.length) return <div>Нет бронирований.</div>;
 
   return (
     <Menus>

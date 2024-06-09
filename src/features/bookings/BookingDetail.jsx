@@ -33,6 +33,7 @@ function BookingDetail() {
   const navigate = useNavigate();
 
   if (isLoading) return <Spinner />;
+  if (!booking) return <div>Бронирование не найдено</div>;
 
   const { status, id: bookingId } = booking;
 
